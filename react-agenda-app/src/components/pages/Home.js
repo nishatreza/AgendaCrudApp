@@ -45,7 +45,7 @@ const Home = () => {
 
                             agendas.map((agenda, index) => (
                                 <tr>
-                                    <th scope="row">{index + 1}</th>
+                                    <th scope="row" key={agenda.id}>{index + 1}</th>
                                     <td>{agenda.title}</td>
                                     <td>{agenda.description}</td>
                                     <td>{agenda.status === true ? <span class="badge bg-success">Complete</span> : <span class="badge bg-danger">Incomplete</span>}

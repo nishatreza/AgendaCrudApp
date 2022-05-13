@@ -11,6 +11,9 @@ const AddAgenda = () => {
         status: false,
         day: ""
     })
+    const [formErrors, setFormErrors] = useState({})
+    const [isSubmit, setIsSubmit] = useState(false)
+
 
     const { title, description, status, day } = agenda;
 
@@ -30,10 +33,34 @@ const AddAgenda = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        await axios.post("http://localhost:3002/agendas", agenda);
-        navigate('/');
+        // validation
+        setFormErrors(validate(agenda));
+        setIsSubmit(true);
+
+        if (Object.keys(formErrors).length === 0 && isSubmit) {
+            await axios.post("http://localhost:3002/agendas", agenda);
+            navigate('/');
+        }
 
     }
+
+
+
+    const validate = (values) => {
+        const errors = {};
+        if (!values.title) {
+            errors.title = "Title is required!";
+        }
+        if (!values.description) {
+            errors.description = "Description is required!";
+        }
+        if (!values.day) {
+            errors.day = "Day is required!";
+        }
+
+        return errors;
+
+    };
 
 
     return (
@@ -54,7 +81,7 @@ const AddAgenda = () => {
                             value={title}
                             onChange={handleChange}
                         />
-                        <div id="titleHelp" className="form-text text-danger">We'll use validation</div>
+                        <div id="titleHelp" className="form-text text-danger">{formErrors.title}</div>
 
 
                     </div>
@@ -68,7 +95,7 @@ const AddAgenda = () => {
                             onChange={handleChange}
 
                         />
-                        <div id="descHelp" className="form-text text-danger">We'll use validation</div>
+                        <div id="descHelp" className="form-text text-danger">{formErrors.description}</div>
 
                     </div>
                     <div className="mb-3">
@@ -83,7 +110,7 @@ const AddAgenda = () => {
                             onChange={handleChange}
 
                         />
-                        <div id="dayHelp" className="form-text text-danger">We'll use validation</div>
+                        <div id="dayHelp" className="form-text text-danger">{formErrors.day}</div>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox"

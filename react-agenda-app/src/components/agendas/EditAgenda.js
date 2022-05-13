@@ -67,7 +67,7 @@ const EditAgenda = () => {
                             value={title}
                             onChange={handleChange}
                         />
-                        <div id="titleHelp" className="form-text text-danger">We'll use validation</div>
+                        {/* <div id="titleHelp" className="form-text text-danger">use validation</div> */}
 
 
                     </div>
@@ -81,7 +81,7 @@ const EditAgenda = () => {
                             onChange={handleChange}
 
                         />
-                        <div id="descHelp" className="form-text text-danger">We'll use validation</div>
+                        {/* <div id="descHelp" className="form-text text-danger"> use validation</div> */}
 
                     </div>
                     <div className="mb-3">
@@ -96,7 +96,7 @@ const EditAgenda = () => {
                             onChange={handleChange}
 
                         />
-                        <div id="dayHelp" className="form-text text-danger">We'll use validation</div>
+                        {/* <div id="dayHelp" className="form-text text-danger"> use validation</div> */}
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox"
