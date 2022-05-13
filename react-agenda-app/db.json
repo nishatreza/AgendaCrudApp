@@ -22,9 +22,9 @@
       "id": 3
     },
     {
-      "title": "title 4",
-      "description": "desc 4",
-      "status": false,
+      "title": "title 4 updated",
+      "description": "desc 4 updated",
+      "status": true,
       "day": "Mar 8th at 10:00 PM",
       "id": 4
     }

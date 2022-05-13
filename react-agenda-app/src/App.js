@@ -14,7 +14,7 @@ const App = () => {
         <Routes>
           <Route exact="true" path="/" element={<Home />} />
           <Route exact="true" path="/agendas/add" element={<AddAgenda />} />
-          <Route exact="true" path="/agendas/edit" element={<EditAgenda />} />
+          <Route exact="true" path="/agendas/edit/:id" element={<EditAgenda />} />
 
         </Routes>
 

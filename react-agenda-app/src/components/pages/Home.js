@@ -52,7 +52,7 @@ const Home = () => {
                                     <td>{agenda.day}</td>
                                     <td>
                                         <Link className="btn btn-primary m-1" to="/">View</Link>
-                                        <Link className="btn btn-outline-primary m-1" to="/">Edit</Link>
+                                        <Link className="btn btn-outline-primary m-1" to={`/agendas/edit/${agenda.id}`}>Edit</Link>
                                         <Link className="btn btn-danger m-1" to="/">Delete</Link>
 
                                     </td>
