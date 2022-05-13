@@ -46,14 +46,13 @@ const EditAgenda = () => {
 
         const result = await axios.get(`http://localhost:3002/agendas/${id}`);
         setAgenda(result.data);
-        // console.log(result);
     }
 
 
     return (
 
 
-        <div className="container">
+        <div className="container py-4">
             <div className="w-75 mx-auto shadow p-5">
                 <h2 className="text-center mb-4">Edit an Agenda</h2>
                 {/* <form onSubmit={e => onSubmit(e)}> */}
@@ -107,7 +106,7 @@ const EditAgenda = () => {
                             onChange={handleChange}
                             name="status"
                         />
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+                        <label className="form-check-label" htmlFor="exampleCheck1">Set Status</label>
                     </div>
                     <div className="d-grid gap-2">
                         <button type="submit" className="btn btn-warning">Update Agenda</button>

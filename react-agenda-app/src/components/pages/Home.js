@@ -18,6 +18,12 @@ const Home = () => {
         setAgendas(result.data)
     }
 
+    const deleteAgenda = async id => {
+        await axios.delete(`http://localhost:3002/agendas/${id}`);
+        loadAgendas();
+
+    }
+
     return (
         <div className='container'>
             <div className="py-4">
@@ -42,18 +48,14 @@ const Home = () => {
                                     <th scope="row">{index + 1}</th>
                                     <td>{agenda.title}</td>
                                     <td>{agenda.description}</td>
-                                    <td>{agenda.status}
+                                    <td>{agenda.status === true ? <span class="badge bg-success">Complete</span> : <span class="badge bg-danger">Incomplete</span>}
 
-
-                                        <input type="checkbox"
-                                            value={agenda.status}
-                                            checked={agenda.status}
-                                        /></td>
+                                    </td>
                                     <td>{agenda.day}</td>
                                     <td>
-                                        <Link className="btn btn-primary m-1" to="/">View</Link>
+                                        <Link className="btn btn-primary m-1" to={`/agendas/view/${agenda.id}`}>View</Link>
                                         <Link className="btn btn-outline-primary m-1" to={`/agendas/edit/${agenda.id}`}>Edit</Link>
-                                        <Link className="btn btn-danger m-1" to="/">Delete</Link>
+                                        <Link className="btn btn-danger m-1" to="" onClick={() => deleteAgenda(agenda.id)}>Delete</Link>
 
                                     </td>
                                 </tr>

@@ -8,23 +8,9 @@
       "day": "Feb 6th at 2:30 PM"
     },
     {
-      "id": 2,
-      "title": "Litham Gordon",
-      "description": "desc 2",
-      "status": false,
-      "day": "Jan 16th at 12:30 PM"
-    },
-    {
-      "title": "title 3",
-      "description": "description of the title",
-      "status": true,
-      "day": "Feb 6th at 2:30 PM",
-      "id": 3
-    },
-    {
       "title": "title 4 updated",
       "description": "desc 4 updated",
-      "status": true,
+      "status": false,
       "day": "Mar 8th at 10:00 PM",
       "id": 4
     }
