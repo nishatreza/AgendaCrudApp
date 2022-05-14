@@ -31,6 +31,8 @@ It will Open [http://localhost:3000](http://localhost:3000) automatically or we 
 4. Last but not least, there is an Import/Export List option from the top navbar, it will go to the import/export list page,
    it will show all the list of agendas and we can download this list as excel sheet by clicking on the Download as XLS button.
 
+\*\* We can see the live data from the db.json file which is a mock json server api
+
 ## Tech stack:
 
 1.react@18.1.0
