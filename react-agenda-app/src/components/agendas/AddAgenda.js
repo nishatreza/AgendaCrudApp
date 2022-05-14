@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddAgenda = () => {
     const navigate = useNavigate();
@@ -11,8 +13,7 @@ const AddAgenda = () => {
         status: false,
         day: ""
     })
-    const [formErrors, setFormErrors] = useState({})
-    const [isSubmit, setIsSubmit] = useState(false)
+
 
 
     const { title, description, status, day } = agenda;
@@ -34,42 +35,25 @@ const AddAgenda = () => {
     const handleSubmit = async e => {
         e.preventDefault();
         // validation
-        setFormErrors(validate(agenda));
-        setIsSubmit(true);
-
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-
+        if (!title && !description && !day) {
+            toast.error("Oops! You misssed a field!", { position: "top-center" });
+        } else if (!title) {
+            toast.error("Title is required!", { position: "top-center" });
+        } else if (!description) {
+            toast.error("Description is required!", { position: "top-center" });
+        } else if (!day) {
+            toast.error("Day is required!", { position: "top-center" });
+        } else {
             await axios.post("http://localhost:3002/agendas", agenda);
             navigate('/');
-            setAgenda({
-                title: "",
-                description: "",
-                status: false,
-                day: ""
-            })
-
         }
+
+
+
 
 
     }
 
-
-
-    const validate = (values) => {
-        const errors = {};
-        if (!values.title) {
-            errors.title = "Title is required!";
-        }
-        if (!values.description) {
-            errors.description = "Description is required!";
-        }
-        if (!values.day) {
-            errors.day = "Day is required!";
-        }
-
-        return errors;
-
-    };
 
 
     return (
@@ -78,7 +62,6 @@ const AddAgenda = () => {
         <div className="container py-4">
             <div className="w-75 mx-auto shadow p-5">
                 <h2 className="text-center mb-4">Add an Agenda</h2>
-                {/* <form onSubmit={e => onSubmit(e)}> */}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-3">
 
@@ -90,7 +73,6 @@ const AddAgenda = () => {
                             value={title}
                             onChange={handleChange}
                         />
-                        <div id="titleHelp" className="form-text text-danger">{formErrors.title}</div>
 
 
                     </div>
@@ -104,7 +86,6 @@ const AddAgenda = () => {
                             onChange={handleChange}
 
                         />
-                        <div id="descHelp" className="form-text text-danger">{formErrors.description}</div>
 
                     </div>
                     <div className="mb-3">
@@ -120,7 +101,6 @@ const AddAgenda = () => {
 
                         />
 
-                        <div id="dayHelp" className="form-text text-danger">{formErrors.day}</div>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox"
@@ -137,6 +117,7 @@ const AddAgenda = () => {
 
                     </div>
                 </form>
+                <ToastContainer />
             </div>
         </div>
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EditAgenda = () => {
     const navigate = useNavigate();
@@ -37,8 +39,22 @@ const EditAgenda = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:3002/agendas/${id}`, agenda);
-        navigate('/');
+
+        // validation
+        if (!title && !description && !day) {
+            toast.error("Oops! You misssed a field!", { position: "top-center" });
+        } else if (!title) {
+            toast.error("Title is required!", { position: "top-center" });
+        } else if (!description) {
+            toast.error("Description is required!", { position: "top-center" });
+        } else if (!day) {
+            toast.error("Day is required!", { position: "top-center" });
+        } else {
+            await axios.put(`http://localhost:3002/agendas/${id}`, agenda);
+            navigate('/');
+        }
+
+
 
     }
 
@@ -113,6 +129,8 @@ const EditAgenda = () => {
 
                     </div>
                 </form>
+                <ToastContainer />
+
             </div>
         </div>
 

@@ -16,6 +16,9 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" exact="true" to="/">Home</NavLink >
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" exact="true" to="/agendas/list">Import/Export List</NavLink >
+                            </li>
 
 
 

@@ -1,32 +1,3 @@
 {
-  "agendas": [
-    {
-      "id": 1,
-      "title": "Leanne Graham",
-      "description": "desc 1",
-      "status": false,
-      "day": "Feb 6th at 2:30 PM"
-    },
-    {
-      "title": "title 4 updated",
-      "description": "desc 4 updated",
-      "status": true,
-      "day": "Mar 8th at 10:00 PM",
-      "id": 4
-    },
-    {
-      "title": "title 6",
-      "description": "desc 6",
-      "status": false,
-      "day": "2022-05-11T02:22",
-      "id": 8
-    },
-    {
-      "title": "",
-      "description": "dec6 ",
-      "status": false,
-      "day": "2022-05-19T12:26",
-      "id": 10
-    }
-  ]
+  "agendas": []
 }

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AddAgenda from './components/agendas/AddAgenda';
 import EditAgenda from './components/agendas/EditAgenda';
 import ViewAgenda from './components/agendas/ViewAgenda';
+import ImportExportList from './components/pages/ImportExportList';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route exact="true" path="/agendas/add" element={<AddAgenda />} />
           <Route exact="true" path="/agendas/edit/:id" element={<EditAgenda />} />
           <Route exact="true" path="/agendas/view/:id" element={<ViewAgenda />} />
+          <Route exact="true" path="/agendas/list" element={<ImportExportList />} />
 
 
         </Routes>
