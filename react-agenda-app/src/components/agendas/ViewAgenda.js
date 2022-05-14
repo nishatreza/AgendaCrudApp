@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Moment from 'moment';
+
 
 const ViewAgenda = () => {
     const [agenda, setAgenda] = useState({
@@ -35,7 +37,7 @@ const ViewAgenda = () => {
                 <li className="list-group-item">Title: {agenda.title}</li>
                 <li className="list-group-item">Description: {agenda.description}</li>
                 <li className="list-group-item">Status: {agenda.status === true ? "Complete" : "Incomplete"}</li>
-                <li className="list-group-item">Day: {agenda.day}</li>
+                <li className="list-group-item">Day: {Moment(agenda.day).format('LLLL')}</li>
             </ul>
         </div>
     )

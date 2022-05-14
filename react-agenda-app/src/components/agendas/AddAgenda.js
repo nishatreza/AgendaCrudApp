@@ -38,9 +38,18 @@ const AddAgenda = () => {
         setIsSubmit(true);
 
         if (Object.keys(formErrors).length === 0 && isSubmit) {
+
             await axios.post("http://localhost:3002/agendas", agenda);
             navigate('/');
+            setAgenda({
+                title: "",
+                description: "",
+                status: false,
+                day: ""
+            })
+
         }
+
 
     }
 
@@ -101,7 +110,7 @@ const AddAgenda = () => {
                     <div className="mb-3">
 
 
-                        <input type="text"
+                        <input type="datetime-local"
                             className="form-control"
                             aria-describedby="dayHelp"
                             placeholder="Add Day & Time"
@@ -110,6 +119,7 @@ const AddAgenda = () => {
                             onChange={handleChange}
 
                         />
+
                         <div id="dayHelp" className="form-text text-danger">{formErrors.day}</div>
                     </div>
                     <div className="mb-3 form-check">

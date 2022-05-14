@@ -87,7 +87,7 @@ const EditAgenda = () => {
                     <div className="mb-3">
 
 
-                        <input type="text"
+                        <input type="datetime-local"
                             className="form-control"
                             aria-describedby="dayHelp"
                             placeholder="Add Day & Time"

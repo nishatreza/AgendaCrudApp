@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
-
+import Moment from 'moment';
 
 const Home = () => {
-
+    // Moment.locale('en');
     const [agendas, setAgendas] = useState([]);
 
     useEffect(() => {
@@ -23,6 +23,7 @@ const Home = () => {
         loadAgendas();
 
     }
+
 
     return (
         <div className='container'>
@@ -51,7 +52,7 @@ const Home = () => {
                                     <td>{agenda.status === true ? <span class="badge bg-success">Complete</span> : <span class="badge bg-danger">Incomplete</span>}
 
                                     </td>
-                                    <td>{agenda.day}</td>
+                                    <td>{Moment(agenda.day).format('LLLL')}</td>
                                     <td>
                                         <Link className="btn btn-primary m-1" to={`/agendas/view/${agenda.id}`}>View</Link>
                                         <Link className="btn btn-outline-primary m-1" to={`/agendas/edit/${agenda.id}`}>Edit</Link>
